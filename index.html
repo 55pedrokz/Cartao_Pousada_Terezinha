@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pousada da Terezinha | Links Oficiais</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/logo_terezinha.png" type="image/png">
+
+    <!-- Open Graph / Compartilhamento -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pousada da Terezinha — Cachoeira Paulista">
+    <meta property="og:description"
+        content="Hospedagem em Cachoeira Paulista, com duas casas de hospedagem: Pousada da Terezinha e Pousada 2.">
+    <meta property="og:image" content="assets/img/logo_terezinha.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description"
+        content="Pousada da Terezinha — duas casas de hospedagem em Cachoeira Paulista, Bairro São João.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loading-screen">
+        <div class="loader-content">
+            <div class="loader-logo-ring">
+                <img src="assets/img/logo_terezinha.png" alt="Pousada da Terezinha" class="loader-logo">
+            </div>
+            <div class="loader-name">Pousada da Terezinha</div>
+            <div class="loader-sub">Cachoeira Paulista · SP</div>
+            <div class="loader-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <main class="app-screen">
+
+        <!-- ===== TOPO ===== -->
+        <div class="header-status animate-item" style="--delay: 0.1s;">
+            <div class="status-left">
+                <span class="greeting" id="greeting-text">BOM DIA</span>
+                <div class="weather-badge" onclick="abrirClimaModal()" aria-label="Ver clima de Cachoeira Paulista">
+                    <i class="fas fa-cloud-sun"></i> <span id="weather-badge-temp">--°C</span>
+                </div>
+            </div>
+            <div class="status-right">
+                <button class="share-circle-btn" onclick="abrirQrModal()" aria-label="Mostrar QR Code">
+                    <i class="fas fa-qrcode"></i>
+                </button>
+                <button class="share-circle-btn" onclick="compartilharSite()" aria-label="Compartilhar página">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- ===== PERFIL ===== -->
+        <header class="profile-area animate-item" style="--delay: 0.2s;">
+            <div class="avatar-container">
+                <img src="assets/img/logo_terezinha.png" alt="Pousada da Terezinha" class="avatar-img">
+            </div>
+            <div class="profile-text">
+                <h1>Pousada da Terezinha</h1>
+                <p class="profile-location"><i class="fas fa-map-marker-alt"></i> Cachoeira Paulista · SP</p>
+                <div class="profile-rating">
+                    <span class="rating-stars">★★★★☆</span>
+                    <span class="rating-text">4,5 · 33 avaliações no Google</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== REDES SOCIAIS / CONTATO ===== -->
+        <div class="social-row animate-item" style="--delay: 0.25s;">
+            <button class="social-icon-btn social-icon-btn--whatsapp" onclick="abrirWhatsModal()"
+                aria-label="WhatsApp Reservas">
+                <i class="fab fa-whatsapp"></i>
+            </button>
+            <button class="social-icon-btn" onclick="abrirLocalModal()" aria-label="Localização das pousadas">
+                <i class="fas fa-map-marker-alt"></i>
+            </button>
+        </div>
+
+        <!-- ===== BOAS VINDAS ===== -->
+        <div class="welcome-box animate-item" style="--delay: 0.3s;">
+            <p>"Hospedagem simples, limpa e acolhedora — perto de tudo, com o carinho de quem trata você como parte
+                da família."</p>
+        </div>
+
+        <!-- ===== COMODIDADES ===== -->
+        <div class="amenities-row animate-item" style="--delay: 0.35s;">
+            <div class="amenity-chip"><i class="fas fa-wifi"></i> Wi-Fi</div>
+            <div class="amenity-chip"><i class="fas fa-coffee"></i> Café da Manhã</div>
+            <div class="amenity-chip"><i class="fas fa-snowflake"></i> A/C em Alguns Quartos</div>
+            <div class="amenity-chip"><i class="fas fa-wheelchair"></i> Acessível</div>
+        </div>
+
+        <!-- ===== PAGAMENTO ===== -->
+        <div class="premium-pix-banner animate-item" style="--delay: 0.4s;">
+            <div class="banner-icon">
+                <i class="fas fa-hand-holding-dollar"></i>
+            </div>
+            <div class="banner-text">
+                <h3>Condição de Pagamento</h3>
+                <p>50% de sinal para reservar + restante na chegada</p>
+            </div>
+        </div>
+
+        <!-- ===== NOSSAS POUSADAS (FOTOS) ===== -->
+        <section class="menu-group animate-item" style="--delay: 0.45s;">
+            <h2 class="group-title"><i class="fas fa-images"></i> NOSSAS POUSADAS</h2>
+            <div class="pousada-toggle-row">
+                <button class="pousada-toggle-btn active" onclick="mostrarGaleria(1, this)">
+                    <i class="fas fa-house"></i> Pousada 1
+                </button>
+                <button class="pousada-toggle-btn" onclick="mostrarGaleria(2, this)">
+                    <i class="fas fa-house"></i> Pousada 2
+                </button>
+            </div>
+
+            <div class="photo-carousel" id="carousel-1">
+                <div class="photo-track" id="galeria-1"></div>
+                <div class="photo-dots" id="dots-galeria-1"></div>
+            </div>
+
+            <div class="photo-carousel" id="carousel-2" style="display:none;">
+                <div class="photo-track" id="galeria-2"></div>
+                <div class="photo-dots" id="dots-galeria-2"></div>
+            </div>
+        </section>
+
+        <!-- ===== ROTEIROS E MAPAS ===== -->
+        <section class="menu-group animate-item" style="--delay: 0.48s;">
+            <h2 class="group-title"><i class="fas fa-map-marked-alt"></i> ROTEIROS E MAPAS</h2>
+
+            <div class="accordion-container">
+                <div class="card-item accordion-trigger" onclick="toggleAccordion(this)">
+                    <div class="card-content">
+                        <div class="icon-wrapper map-bg"><i class="fas fa-map-pin map-color"></i></div>
+                        <div class="text-wrapper">
+                            <h3>Guia Prático</h3>
+                            <p>Toque para ver os pontos turísticos</p>
+                        </div>
+                    </div>
+                    <div class="action-pill dropdown-btn">
+                        Abrir <i class="fas fa-chevron-down arrow-icon"></i>
+                    </div>
+                </div>
+
+                <div class="accordion-body">
+                    <div class="accordion-inner">
+                        <a href="https://maps.google.com/?q=Rua+Jose+Rodrigues+Fontes,+290+Cachoeira+Paulista"
+                            target="_blank" class="sub-item">
+                            <div class="sub-icon"><i class="fas fa-route"></i></div>
+                            <span>Rota para a Pousada da Terezinha</span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+                        <a href="https://maps.google.com/?q=Rua+Joao+Borges,+28+Cachoeira+Paulista"
+                            target="_blank" class="sub-item">
+                            <div class="sub-icon"><i class="fas fa-route"></i></div>
+                            <span>Rota para a Pousada 2</span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+                        <a href="https://maps.google.com/?q=Capela+Sao+Joao+Batista+Cachoeira+Paulista" target="_blank"
+                            class="sub-item">
+                            <div class="sub-icon"><i class="fas fa-cross"></i></div>
+                            <span>Capela São João Batista</span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+                        <a href="https://maps.google.com/?q=Cancao+Nova+Cachoeira+Paulista" target="_blank"
+                            class="sub-item">
+                            <div class="sub-icon"><i class="fas fa-church"></i></div>
+                            <span>Canção Nova</span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+                        <a href="https://maps.google.com/?q=Monumento+Padre+Leo+Cachoeira+Paulista" target="_blank"
+                            class="sub-item">
+                            <div class="sub-icon"><i class="fas fa-monument"></i></div>
+                            <span>Monumento Padre Léo</span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+                        <a href="https://maps.google.com/?q=Santuario+Santa+Cabeca+Cachoeira+Paulista" target="_blank"
+                            class="sub-item">
+                            <div class="sub-icon"><i class="fas fa-place-of-worship"></i></div>
+                            <span>Santuário Santa Cabeça</span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+                        <a href="https://maps.google.com/?q=Santuario+Frei+Galvao+Guaratingueta" target="_blank"
+                            class="sub-item">
+                            <div class="sub-icon"><i class="fas fa-star-of-david"></i></div>
+                            <span>Frei Galvão — Guaratinguetá</span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+                        <a href="https://maps.google.com/?q=Santuario+Nacional+Nossa+Senhora+Aparecida" target="_blank"
+                            class="sub-item no-border">
+                            <div class="sub-icon"><i class="fas fa-praying-hands"></i></div>
+                            <span>Santuário de Aparecida</span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DELIVERY ===== -->
+        <section class="menu-group animate-item" style="--delay: 0.49s;">
+            <h2 class="group-title"><i class="fas fa-utensils"></i> DELIVERY</h2>
+
+            <div class="accordion-container">
+                <div class="card-item accordion-trigger" onclick="toggleAccordion(this)">
+                    <div class="card-content">
+                        <div class="icon-wrapper suite-bg"><i class="fas fa-pizza-slice suite-color"></i></div>
+                        <div class="text-wrapper">
+                            <h3>Lanchonetes e Pizzarias</h3>
+                            <p>Toque para ver os contatos</p>
+                        </div>
+                    </div>
+                    <div class="action-pill dropdown-btn">
+                        Abrir <i class="fas fa-chevron-down arrow-icon"></i>
+                    </div>
+                </div>
+
+                <div class="accordion-body">
+                    <div class="accordion-inner">
+                        <div class="delivery-subtitle">Pizzarias</div>
+                        <a href="tel:1231014111" class="sub-item">
+                            <div class="sub-icon"><i class="fas fa-phone"></i></div>
+                            <span>Pepizza <span class="dist-badge">12 3101-4111</span></span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+                        <a href="https://wa.me/5512997701032" target="_blank" class="sub-item">
+                            <div class="sub-icon"><i class="fab fa-whatsapp"></i></div>
+                            <span>Ed Casa Delivery <span class="dist-badge">12 99770-1032</span></span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+                        <a href="https://wa.me/5512997494444" target="_blank" class="sub-item">
+                            <div class="sub-icon"><i class="fab fa-whatsapp"></i></div>
+                            <span>Recanto da Chácara <span class="dist-badge">12 99749-4444</span></span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+
+                        <div class="delivery-subtitle">Lanchonetes</div>
+                        <a href="https://wa.me/5512997569258" target="_blank" class="sub-item">
+                            <div class="sub-icon"><i class="fab fa-whatsapp"></i></div>
+                            <span>Thaís Lanches <span class="dist-badge">12 99756-9258</span></span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+                        <a href="https://wa.me/5512997763418" target="_blank" class="sub-item">
+                            <div class="sub-icon"><i class="fab fa-whatsapp"></i></div>
+                            <span>Neuza Lanches <span class="dist-badge">12 99776-3418</span></span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+                        <a href="https://wa.me/5512997187075" target="_blank" class="sub-item no-border">
+                            <div class="sub-icon"><i class="fab fa-whatsapp"></i></div>
+                            <span>Túlio Lanches <span class="dist-badge">12 99718-7075</span></span>
+                            <i class="fas fa-external-link-alt link-out"></i>
+                        </a>
+
+                        <div class="delivery-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Endereço para entrega — Pousada da Terezinha: R. José Rodrigues Fontes, nº290 — Bairro São João</span>
+                        </div>
+                        <div class="delivery-address" style="margin-top:8px;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Endereço para entrega — Pousada 2: R. João Borges, nº28 — Bairro São João</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ACOMODAÇÕES ===== -->
+        <section class="menu-group animate-item" style="--delay: 0.5s;">
+            <h2 class="group-title"><i class="fas fa-bed"></i> ACOMODAÇÕES</h2>
+
+
+            <div class="accordion-container">
+                <div class="card-item accordion-trigger" onclick="toggleAccordion(this)">
+                    <div class="card-content">
+                        <div class="icon-wrapper suite-bg"><i class="fas fa-door-open suite-color"></i></div>
+                        <div class="text-wrapper">
+                            <h3>Pousada da Terezinha</h3>
+                            <p>5 quartos • até 25 pessoas</p>
+                        </div>
+                    </div>
+                    <div class="action-pill dropdown-btn">
+                        Ver <i class="fas fa-chevron-down arrow-icon"></i>
+                    </div>
+                </div>
+
+                <div class="accordion-body">
+                    <div class="accordion-inner suites-inner">
+                        <div class="suite-card">
+                            <div class="suite-header">
+                                <span class="suite-name">Suíte 1</span>
+                                <span class="suite-cap"><i class="fas fa-users"></i> até 9 pessoas</span>
+                            </div>
+                            <div class="suite-tags">
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 1 cama casal</span>
+                                <span class="suite-tag"><i class="fas fa-layer-group"></i> 3 beliches</span>
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 1 cama baixa</span>
+                            </div>
+                        </div>
+                        <div class="suite-card">
+                            <div class="suite-header">
+                                <span class="suite-name">Suíte 2</span>
+                                <span class="suite-cap"><i class="fas fa-users"></i> até 8 pessoas</span>
+                            </div>
+                            <div class="suite-tags">
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 1 cama casal</span>
+                                <span class="suite-tag"><i class="fas fa-layer-group"></i> 4 beliches</span>
+                            </div>
+                        </div>
+                        <div class="suite-card">
+                            <div class="suite-header">
+                                <span class="suite-name">Suíte 3</span>
+                                <span class="suite-cap"><i class="fas fa-users"></i> até 5 pessoas</span>
+                            </div>
+                            <div class="suite-tags">
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 1 cama casal</span>
+                                <span class="suite-tag"><i class="fas fa-layer-group"></i> 1 beliche</span>
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 1 cama baixa</span>
+                            </div>
+                        </div>
+                        <div class="suite-card">
+                            <div class="suite-header">
+                                <span class="suite-name">Quarto 4</span>
+                                <span class="suite-cap"><i class="fas fa-users"></i> até 2 pessoas</span>
+                            </div>
+                            <div class="suite-tags">
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 2 camas baixas</span>
+                            </div>
+                        </div>
+                        <div class="suite-card no-border-suite">
+                            <div class="suite-header">
+                                <span class="suite-name">Quarto do Motorista</span>
+                                <span class="suite-cap"><i class="fas fa-users"></i> sob consulta</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-container" style="margin-top:14px;">
+                <div class="card-item accordion-trigger" onclick="toggleAccordion(this)">
+                    <div class="card-content">
+                        <div class="icon-wrapper suite-bg"><i class="fas fa-door-open suite-color"></i></div>
+                        <div class="text-wrapper">
+                            <h3>Pousada 2</h3>
+                            <p>5 quartos • até 24 pessoas</p>
+                        </div>
+                    </div>
+                    <div class="action-pill dropdown-btn">
+                        Ver <i class="fas fa-chevron-down arrow-icon"></i>
+                    </div>
+                </div>
+
+                <div class="accordion-body">
+                    <div class="accordion-inner suites-inner">
+                        <div class="suite-card">
+                            <div class="suite-header">
+                                <span class="suite-name">Suíte 1</span>
+                                <span class="suite-cap"><i class="fas fa-users"></i> até 6 pessoas</span>
+                            </div>
+                            <div class="suite-tags">
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 1 cama casal</span>
+                                <span class="suite-tag"><i class="fas fa-layer-group"></i> 1 beliche</span>
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 2 camas baixas</span>
+                            </div>
+                        </div>
+                        <div class="suite-card">
+                            <div class="suite-header">
+                                <span class="suite-name">Suíte 2</span>
+                                <span class="suite-cap"><i class="fas fa-users"></i> até 7 pessoas</span>
+                            </div>
+                            <div class="suite-tags">
+                                <span class="suite-tag"><i class="fas fa-layer-group"></i> 2 beliches</span>
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 1 cama casal</span>
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 1 cama baixa</span>
+                                <span class="suite-tag tag-special"><i class="fas fa-stairs"></i> Escada</span>
+                            </div>
+                        </div>
+                        <div class="suite-card">
+                            <div class="suite-header">
+                                <span class="suite-name">Suíte 3</span>
+                                <span class="suite-cap"><i class="fas fa-users"></i> até 3 pessoas</span>
+                            </div>
+                            <div class="suite-tags">
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 1 cama casal</span>
+                                <span class="suite-tag"><i class="fas fa-layer-group"></i> 2 beliches</span>
+                            </div>
+                        </div>
+                        <div class="suite-card">
+                            <div class="suite-header">
+                                <span class="suite-name">Suíte 4</span>
+                                <span class="suite-cap"><i class="fas fa-users"></i> até 6 pessoas</span>
+                            </div>
+                            <div class="suite-tags">
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 1 cama casal</span>
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 1 cama baixa</span>
+                            </div>
+                        </div>
+                        <div class="suite-card no-border-suite">
+                            <div class="suite-header">
+                                <span class="suite-name">Quarto 5</span>
+                                <span class="suite-cap"><i class="fas fa-users"></i> até 2 pessoas</span>
+                            </div>
+                            <div class="suite-tags">
+                                <span class="suite-tag"><i class="fas fa-bed"></i> 2 camas baixas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== AVALIAÇÕES ===== -->
+        <section class="menu-group animate-item" style="--delay: 0.58s;">
+            <h2 class="group-title"><i class="fas fa-star"></i> O QUE DIZEM NOSSOS HÓSPEDES</h2>
+            <div class="reviews-carousel">
+                <div class="reviews-track" id="reviews-track">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Muito bom, já fiquei em vários hotéis dentro e fora do país, mas nunca me senti tão
+                            acolhido. Considero como morada do espírito!"</p>
+                        <span class="review-author">— Hóspede Google</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Lugar limpo, ambiente familiar. Se quiser refeições, lá serve comidinha caseira e os
+                            anfitriões são gente boa."</p>
+                        <span class="review-author">— Hóspede Google</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Foi muito gratificante, Dona Tereza uma pessoa adorável, simpática, atenciosa. Realmente
+                            indico, e um almoço delicioso de qualidade sem igual."</p>
+                        <span class="review-author">— Hóspede Google</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Fiquei hospedada aqui e amei esse lugar. A Dona Terezinha é um amor de pessoa. Quarto
+                            super arrumado, cheiroso e boa comida 👍"</p>
+                        <span class="review-author">— Hóspede Google</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Maravilhosa, ótimos quartos, um ótimo atendimento, pessoas muito educadas e simpáticas.
+                            Adorei e indico, vale a pena conhecer."</p>
+                        <span class="review-author">— Hóspede Google</span>
+                    </div>
+                </div>
+                <div class="review-dots" id="review-dots"></div>
+            </div>
+            <a href="https://search.google.com/local/writereview?placeid=ChIJ5daGp4aKnQARgAYKsBuEZ1Y"
+                target="_blank" class="action-pill modal-btn-full rate-us-btn">
+                <i class="fas fa-star"></i> Nos Avalie no Google
+            </a>
+        </section>
+
+        <!-- ===== ENDEREÇOS ===== -->
+        <section class="menu-group animate-item" style="--delay: 0.55s;">
+            <h2 class="group-title"><i class="fas fa-map-marker-alt"></i> ENDEREÇOS</h2>
+            <a href="https://maps.google.com/?q=Rua+Jose+Rodrigues+Fontes,+290+Cachoeira+Paulista" target="_blank"
+                class="card-item link-mode">
+                <div class="card-content">
+                    <div class="icon-wrapper map-bg"><i class="fas fa-map-marker-alt map-color"></i></div>
+                    <div class="text-wrapper">
+                        <h3>Pousada da Terezinha</h3>
+                        <p>R. José Rodrigues Fontes, 290 — Bairro São João</p>
+                    </div>
+                </div>
+                <div class="action-pill">Ver Mapa</div>
+            </a>
+            <a href="https://maps.google.com/?q=Rua+Joao+Borges,+28+Cachoeira+Paulista" target="_blank"
+                class="card-item link-mode" style="margin-top:10px;">
+                <div class="card-content">
+                    <div class="icon-wrapper map-bg"><i class="fas fa-map-marker-alt map-color"></i></div>
+                    <div class="text-wrapper">
+                        <h3>Pousada 2</h3>
+                        <p>R. João Borges, 28 — Bairro São João</p>
+                    </div>
+                </div>
+                <div class="action-pill">Ver Mapa</div>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- ===== MODAL CLIMA ===== -->
+    <div id="weather-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharClimaModal()"><i class="fas fa-times"></i></button>
+            <h3>Cachoeira Paulista</h3>
+            <p class="weather-subtitle" id="weather-subtitle-text">Buscando clima real...</p>
+            <div class="weather-display-main">
+                <i class="fas fa-cloud-sun weather-main-icon" id="weather-main-icon"></i>
+                <span class="weather-main-temp" id="weather-main-temp">--°C</span>
+            </div>
+            <div class="weather-timeline-title">Previsão para hoje:</div>
+            <div class="weather-timeline">
+                <div class="timeline-item">
+                    <span class="period">Manhã</span>
+                    <i class="fas fa-cloud-sun" id="icon-manha" style="color: #A3B8CC;"></i>
+                    <span class="temp" id="temp-manha">--°C</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="period">Tarde</span>
+                    <i class="fas fa-sun" id="icon-tarde" style="color: #FFA726;"></i>
+                    <span class="temp" id="temp-tarde">--°C</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="period">Noite</span>
+                    <i class="fas fa-moon" id="icon-noite" style="color: #78909C;"></i>
+                    <span class="temp" id="temp-noite">--°C</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL QR CODE ===== -->
+    <div id="page-qr-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharQrModal()"><i class="fas fa-times"></i></button>
+            <h3>Cartão Virtual</h3>
+            <p>Leia o QR Code abaixo com a câmera para acessar este cartão em outro celular.</p>
+            <div class="modal-qr-box">
+                <div id="qrcode-container"></div>
+            </div>
+            <button class="action-pill modal-btn-full" onclick="compartilharSite()">
+                <i class="fas fa-share-alt"></i> Enviar Link
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== MODAL LOCALIZAÇÃO (ESCOLHA DA POUSADA) ===== -->
+    <div id="local-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharLocalModal()"><i class="fas fa-times"></i></button>
+            <h3>Ver Localização</h3>
+            <p>Escolha qual pousada você quer ver no mapa:</p>
+            <div class="whats-choice-list">
+                <a href="https://maps.google.com/?q=Rua+Jose+Rodrigues+Fontes,+290+Cachoeira+Paulista"
+                    target="_blank" class="whats-choice-btn">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="whats-choice-text">
+                        <h4>Pousada da Terezinha</h4>
+                        <p>R. José Rodrigues Fontes, 290</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="https://maps.google.com/?q=Rua+Joao+Borges,+28+Cachoeira+Paulista"
+                    target="_blank" class="whats-choice-btn">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="whats-choice-text">
+                        <h4>Pousada 2</h4>
+                        <p>R. João Borges, 28</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL WHATSAPP (ESCOLHA DA POUSADA) ===== -->
+    <div id="whats-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharWhatsModal()"><i class="fas fa-times"></i></button>
+            <h3>Falar no WhatsApp</h3>
+            <p>Escolha qual pousada você quer falar:</p>
+            <div class="whats-choice-list">
+                <a href="https://api.whatsapp.com/send?phone=5512982946187"
+                    target="_blank" class="whats-choice-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="whats-choice-text">
+                        <h4>Pousada da Terezinha</h4>
+                        <p>+55 12 98294-6187</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=5512997618741"
+                    target="_blank" class="whats-choice-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="whats-choice-text">
+                        <h4>Pousada 2</h4>
+                        <p>+55 12 99761-8741</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL LIGHTBOX (FOTO AMPLIADA) ===== -->
+    <div id="lightbox-modal" class="modal-overlay">
+        <div class="lightbox-content">
+            <button class="modal-close lightbox-close" onclick="fecharLightbox()"><i class="fas fa-times"></i></button>
+            <img id="lightbox-img" src="" alt="Foto ampliada">
+        </div>
+    </div>
+
+    <!-- ===== TOAST ===== -->
+    <div id="copy-toast"></div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
